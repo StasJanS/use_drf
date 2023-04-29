@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from use_DRF.shema_api import schema_view
+from women.views import WomenAPIView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('swagger/', schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
+    path('api/v1/womenlist', WomenAPIView.as_view())
 ]
