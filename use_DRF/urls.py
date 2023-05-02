@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path('api/v1/womenlist', WomenAPIList.as_view()),
-    path('api/v1/womenlist/<int:pk>/', WomenAPIList.as_view()),
+    path('api/v1/womenlist/<int:pk>/', WomenAPIUpdate.as_view()),
+    path('api/v1/womendetail/<int:pk>/', WomenAPIDetailView.as_view()),
 ]
