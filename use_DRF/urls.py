@@ -15,15 +15,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from use_DRF.shema_api import schema_view
 from women.views import *
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register(r'women', WomenViewSet)
+"""
+     Через include добавляются все маршруты, которые были возможны во ViewSet, 
+    благодаря router и вместо нескольких урлов записывается один
+"""
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
-    path('api/v1/womenlist', WomenAPIList.as_view()),
-    path('api/v1/womenlist/<int:pk>/', WomenAPIUpdate.as_view()),
-    path('api/v1/womendetail/<int:pk>/', WomenAPIDetailView.as_view()),
+
+    path('api/v1/', include(router.urls)),
+    # path('api/v1/womenlist', WomenViewSet.as_view({'get': 'list'})),
+    # path('api/v1/womenlist/<int:pk>/', WomenViewSet.as_view({'put': 'update', 'get': 'retrieve'})),
 ]

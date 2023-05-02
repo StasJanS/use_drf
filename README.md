@@ -15,3 +15,4 @@
 5. Методы save(), create() и update() класса Serializer
 6. Класс ModelSerializer и представление ListCreateAPIView
 7. Представления UpdateAPIView и RetrieveUpdateDestroyAPIView
+8. Viewsets и ModelViewSet
