@@ -12,10 +12,15 @@ from women.serializers import WomenSerializer
 #     queryset = Women.objects.all()
 #     serializer_class = WomenSerializer
 
+class WomenAPIList(generics.ListCreateAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
 class WomenAPIView(APIView):
 
     def get(self, request):
-        all_w = Women.objects.all().values()
+        all_w = Women.objects.all()
         return Response({'posts': WomenSerializer(all_w, many=True).data})
 
     def post(self, request):
