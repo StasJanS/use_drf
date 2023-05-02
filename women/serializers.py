@@ -31,6 +31,7 @@ class WomenSerializer(serializers.Serializer):
         instance.is_published = validated_data.get('is_published', instance.is_published)
         instance.cat_id = validated_data.get('cat_id', instance.cat_id)
         instance.save()
+        return instance
 
 
 # # кодирование и декотирование данных, которые представляются в виде json-формата
