@@ -16,3 +16,4 @@
 6. Класс ModelSerializer и представление ListCreateAPIView
 7. Представления UpdateAPIView и RetrieveUpdateDestroyAPIView
 8. Viewsets и ModelViewSet
+9. Роутеры: SimpleRouter и DefaultRouter

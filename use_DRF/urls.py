@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 from use_DRF.shema_api import schema_view
+from women.routers import MyCustomRouter
 from women.views import *
 from rest_framework import routers
 
-router = routers.SimpleRouter()
-router.register(r'women', WomenViewSet)
+router = MyCustomRouter()
+# router = routers.DefaultRouter()
+router.register(r'women', WomenViewSet, basename='women')
+print(router.urls)
+
 """
      Через include добавляются все маршруты, которые были возможны во ViewSet, 
     благодаря router и вместо нескольких урлов записывается один
