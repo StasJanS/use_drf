@@ -1,5 +1,6 @@
 # use_drf
 Тренировочный проект по DRF
+(stas 1234)
 
 
 # Пример
@@ -17,3 +18,4 @@
 7. Представления UpdateAPIView и RetrieveUpdateDestroyAPIView
 8. Viewsets и ModelViewSet
 9. Роутеры: SimpleRouter и DefaultRouter
+10. Ограничения доступа (permissions)
