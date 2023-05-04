@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
+    'rest_framework.authtoken',  # стандартная таблица DRF для авторизации по токенам
+    'djoser',  # приложение для авторизации по токенам
     'women',
 ]
 
@@ -136,4 +138,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',  # Задаёт права по default
     ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Разрешение аутенфикации по Token
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',  # Разрешение аутенфикации по Session
+    ]
 }
