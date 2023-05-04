@@ -19,3 +19,4 @@
 8. Viewsets и ModelViewSet
 9. Роутеры: SimpleRouter и DefaultRouter
 10. Ограничения доступа (permissions)
+11. Авторизация и аутентификация. Session-based authentication

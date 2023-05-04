@@ -24,6 +24,7 @@ from women.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
+    path('api/v1/drf-auth/', include('rest_framework.urls')),  # подключаем урлы DRF
 
     path('api/v1/women/', WomenAPIList.as_view()),
     path('api/v1/women/<int:pk>/', WomenAPIUpdate.as_view()),
