@@ -5,6 +5,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, IsAuthenticated
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -43,3 +44,15 @@ class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
     permission_classes = (IsAdminOrReadOnly, )
+
+
+# взможность вывести информацию через Django
+class WomenAPIListTemplate(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'base.html'
+    serializer_class = WomenSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def get(self, request, *args, **kwargs):
+        queryset = Women.objects.all()
+        return Response({"women_list": queryset})
